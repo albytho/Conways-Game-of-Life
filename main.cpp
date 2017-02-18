@@ -150,7 +150,7 @@ int main() {
     for(uint row=0; row<size; ++row){
         for(uint column=0; column<size; ++column){
             if(rand() % 2 == 0){
-                mark = 'O';
+                mark = '.';
             }
             else{
                 mark = 'X';
@@ -181,7 +181,7 @@ int main() {
                     if(!atBorder(size, r, c)){
                         neigbhors = non_Border_NeighborCount(map, r, c);
                         if(neigbhors > 3 || neigbhors < 2){
-                            map[r][c].mark = 'O';
+                            map[r][c].mark = '.';
                         }
                     }
                     
@@ -189,22 +189,22 @@ int main() {
                     else{
                         if(r == 0){
                             if(row_0_NeighborCount(map, r, c, size) < 2){
-                                map[r][c].mark = 'O';
+                                map[r][c].mark = '.';
                             }
                         }
                         else if(r == size-1){
                             if(row_last_NeighborCount(map, r, c, size) < 2){
-                                map[r][c].mark = 'O';
+                                map[r][c].mark = '.';
                             }
                         }
                         else if(c == 0){
                             if(col_one_between_firstandlast_row_NeighborCount(map, r, c, size) < 2){
-                                map[r][c].mark = 'O';
+                                map[r][c].mark = '.';
                             }
                         }
                         else if(c == size-1){
                             if(col_last_between_firstandlast_row_NeighborCount(map, r, c, size) < 2){
-                                map[r][c].mark = 'O';
+                                map[r][c].mark = '.';
                             }
                         }
                     }
