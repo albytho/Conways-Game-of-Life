@@ -27,6 +27,7 @@ bool atBorder(int size, int row, int column){
 int non_Border_NeighborCount(vector<vector<coordinate>> &map, int row, int column){
     int count = 0;
     
+    //Direct Sides
     if(map[row+1][column].mark == 'X'){
         ++count;
     }
@@ -37,6 +38,20 @@ int non_Border_NeighborCount(vector<vector<coordinate>> &map, int row, int colum
         ++count;
     }
     if(map[row][column+1].mark == 'X'){
+        ++count;
+    }
+    
+    //Diagonals
+    if(map[row-1][column+1].mark == 'X'){
+        ++count;
+    }
+    if(map[row-1][column-1].mark == 'X'){
+        ++count;
+    }
+    if(map[row+1][column+1].mark == 'X'){
+        ++count;
+    }
+    if(map[row+1][column-1].mark == 'X'){
         ++count;
     }
     
@@ -54,9 +69,15 @@ int row_0_NeighborCount(vector<vector<coordinate>> &map, int row, int column, in
         if(map[row][column+1].mark == 'X'){
             ++count;
         }
+        if(map[row+1][column+1].mark == 'X'){
+            ++count;
+        }
     }
     else if(column == size-1){
         if(map[row][column-1].mark == 'X'){
+            ++count;
+        }
+        if(map[row+1][column-1].mark == 'X'){
             ++count;
         }
     }
@@ -65,6 +86,12 @@ int row_0_NeighborCount(vector<vector<coordinate>> &map, int row, int column, in
             ++count;
         }
         if(map[row][column+1].mark == 'X'){
+            ++count;
+        }
+        if(map[row+1][column-1].mark == 'X'){
+            ++count;
+        }
+        if(map[row+1][column+1].mark == 'X'){
             ++count;
         }
     }
@@ -83,9 +110,15 @@ int row_last_NeighborCount(vector<vector<coordinate>> &map, int row, int column,
         if(map[row][column+1].mark == 'X'){
             ++count;
         }
+        if(map[row-1][column+1].mark == 'X'){
+            ++count;
+        }
     }
     else if(column == size-1){
         if(map[row][column-1].mark == 'X'){
+            ++count;
+        }
+        if(map[row-1][column-1].mark == 'X'){
             ++count;
         }
     }
@@ -94,6 +127,12 @@ int row_last_NeighborCount(vector<vector<coordinate>> &map, int row, int column,
             ++count;
         }
         if(map[row][column+1].mark == 'X'){
+            ++count;
+        }
+        if(map[row-1][column-1].mark == 'X'){
+            ++count;
+        }
+        if(map[row-1][column+1].mark == 'X'){
             ++count;
         }
     }
@@ -113,6 +152,12 @@ int col_one_between_firstandlast_row_NeighborCount(vector<vector<coordinate>> &m
     if(map[row][column+1].mark == 'X'){
         ++count;
     }
+    if(map[row-1][column+1].mark == 'X'){
+        ++count;
+    }
+    if(map[row+1][column+1].mark == 'X'){
+        ++count;
+    }
     
     return count;
 }
@@ -127,6 +172,12 @@ int col_last_between_firstandlast_row_NeighborCount(vector<vector<coordinate>> &
         ++count;
     }
     if(map[row][column-1].mark == 'X'){
+        ++count;
+    }
+    if(map[row-1][column-1].mark == 'X'){
+        ++count;
+    }
+    if(map[row+1][column-1].mark == 'X'){
         ++count;
     }
     
